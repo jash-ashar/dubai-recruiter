@@ -991,7 +991,7 @@ footer{background:var(--navy);padding:60px 6% 34px}
 </footer>
 
 <script>
-const CLAUDE_API_KEY = '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';
+// API key is securely stored in Cloudflare Worker
 
 // ===== TESTIMONIAL CAROUSEL =====
 let tCurrent = 0;
@@ -1125,9 +1125,9 @@ async function sendMessage(){
   busy=true;document.getElementById('sendBtn').disabled=true;
   addLoader();
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('https://dubai-recruiter-api.jash-ashar.workers.dev',{
       method:'POST',
-      headers:{'Content-Type':'application/json','x-api-key':CLAUDE_API_KEY,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},
+      headers:{'Content-Type':'application/json'},
       body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:SYS,messages:history})
     });
     const data=await res.json();
