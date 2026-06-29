@@ -1128,7 +1128,7 @@ async function sendMessage(){
     const res=await fetch('https://dubai-recruiter-api.jash-ashar.workers.dev',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,system:SYS,messages:history})
+      body:JSON.stringify({model:'claude-sonnet-4-6',max_tokens:400,system:SYS,messages:history})
     });
     const data=await res.json();
     removeLoader();
